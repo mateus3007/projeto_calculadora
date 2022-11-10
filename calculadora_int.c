@@ -41,6 +41,14 @@ int divisao(int num1, int num2)
 
     return cont;
 }
+int potencia(int num1, int num2)
+{
+    int res = 1;
+    for (int i = 0; i < num2; i = soma(i, 1))
+        res = multiplicacao(res, num1);
+
+    return res;
+}
 
 int main(void)
 {
@@ -49,7 +57,7 @@ int main(void)
 
     while (1)
     {
-        printf("Digite a operacao desejada (+,-,*,/, 0):");
+        printf("Digite a operacao desejada (+,-,*,/, ^, 0):");
         scanf("%c%*c", &op);
         num_op = 2;
 
@@ -70,6 +78,10 @@ int main(void)
             case '/':
             coleta_operandos(num_op, &num1, &num2);
             res = divisao(num1, num2);
+            break;
+            case '^':
+            coleta_operandos(num_op, &num1, &num2);
+            res = potencia(num1, num2);
             break;
 
         case '0':
